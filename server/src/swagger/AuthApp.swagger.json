@@ -1,0 +1,205 @@
+{
+  "info": { "title": "AuthApp", "description": "", "version": "1.0.0" },
+  "tags": [],
+  "paths": {
+    "/admin/register": {
+      "post": {
+        "summary": "Register",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string", "description": "name" },
+                "email": { "type": "string", "format": "email" },
+                "password": { "type": "string", "format": "password" }
+              },
+              "required": ["name", "email", "password"]
+            }
+          }
+        ],
+        "responses": {},
+        "security": [],
+        "consumes": ["application/json"],
+        "produces": ["application/json"]
+      }
+    },
+    "/admin/login": {
+      "post": {
+        "summary": "Login",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": { "type": "string", "format": "email" },
+                "password": { "type": "string", "format": "password" }
+              },
+              "required": ["email", "password"]
+            }
+          }
+        ],
+        "responses": {},
+        "security": [],
+        "consumes": ["application/json"],
+        "produces": ["application/json"]
+      }
+    },
+    "/admin/users": {
+      "get": {
+        "summary": "All Users",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {},
+        "security": [{ "bearer": [] }],
+        "produces": ["application/json"]
+      },
+      "post": {
+        "summary": "Add Users",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": { "type": "string", "format": "email" },
+                "FName": { "type": "string" },
+                "LName": { "type": "string" }
+              },
+              "required": ["email", "FName", "LName"]
+            }
+          }
+        ],
+        "responses": {},
+        "security": [{ "bearer": [] }],
+        "consumes": ["application/json"],
+        "produces": ["application/json"]
+      }
+    },
+    "/admin/users/{id}": {
+      "get": {
+        "summary": "Get Single User",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "x-example": "661fef752ca35bc091922c70"
+          }
+        ],
+        "responses": {},
+        "security": [{ "bearer": [] }],
+        "produces": ["application/json"]
+      },
+      "put": {
+        "summary": "Update User",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "x-example": "661fef752ca35bc091922c70"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": { "type": "string", "format": "email" },
+                "FName": { "type": "string" },
+                "LName": { "type": "string" }
+              },
+              "required": ["email", "FName", "LName"]
+            }
+          }
+        ],
+        "responses": {},
+        "security": [{ "bearer": [] }],
+        "consumes": ["application/json"],
+        "produces": ["application/json"]
+      },
+      "delete": {
+        "summary": "Delete User",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "x-example": "661fef752ca35bc091922c70"
+          }
+        ],
+        "responses": {},
+        "security": [{ "bearer": [] }],
+        "produces": ["application/json"]
+      }
+    },
+    "/test": {
+      "get": {
+        "summary": "Server Test",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {},
+        "security": [],
+        "produces": ["application/json"]
+      }
+    }
+  },
+  "swagger": "2.0",
+  "host": "localhost:4000",
+  "schemes": ["http"],
+  "basePath": "/",
+  "definitions": {},
+  "securityDefinitions": {
+    "bearer": { "type": "apiKey", "name": "Authorization", "in": "header" }
+  },
+  "x-components": {}
+}

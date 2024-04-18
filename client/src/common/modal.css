@@ -1,0 +1,28 @@
+::backdrop {
+  /* using variables here is not supported yet */
+  background: rgba(0, 0, 0, 0.5);
+}
+dialog {
+  border: solid 1px var(--primary);
+  background: var(--dark2);
+  color: var(--white);
+  border-radius: 0.75rem;
+  min-width: 25rem;
+  max-width: 30rem;
+}
+dialog:focus {
+  outline: none;
+}
+@media screen and (max-width: 640px) {
+  dialog iframe {
+    width: 22rem;
+  }
+}
+@media screen and (max-width: 420px) {
+  dialog iframe {
+    width: 18rem;
+  }
+  dialog {
+    min-width: 20rem;
+  }
+}
